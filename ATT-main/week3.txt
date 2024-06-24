@@ -1,0 +1,43 @@
+package week3;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
+
+public class Week3 {
+
+    public static void main(String[] args) throws InterruptedException {
+        WebDriver driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        driver.get("https://www.facebook.com/");
+        Thread.sleep(2000);
+        driver.findElement(By.partialLinkText("Create new account")).click();
+        Thread.sleep(500);
+        driver.findElement(By.name("firstname")).sendKeys("pranav");
+        Thread.sleep(500);
+        driver.findElement(By.name("lastname")).sendKeys("sasank");
+        Thread.sleep(500);
+        WebElement mobileOrEmailId = driver.findElement(By.name("reg_email__"));
+        mobileOrEmailId.sendKeys("1234567890");
+        Thread.sleep(500);
+        WebElement password = driver.findElement(By.name("reg_passwd__"));
+        password.sendKeys("1234567890");
+        Thread.sleep(500);
+        Select dateDropdown = new Select(driver.findElement(By.id("day")));
+        dateDropdown.selectByValue("8");
+        Thread.sleep(500);
+        Select monthDropdown = new Select(driver.findElement(By.id("month")));
+        monthDropdown.selectByValue("3");
+        Thread.sleep(500);
+        Select yearDropdown = new Select(driver.findElement(By.id("year")));
+        yearDropdown.selectByValue("2004");
+        Thread.sleep(500);
+        WebElement gender = driver.findElement(By.xpath("(//label[normalize-space()='Male'])[1]")); 
+        gender.click();
+        Thread.sleep(500);
+        WebElement signupBtn = driver.findElement(By.name("websubmit"));
+        signupBtn.click();
+    }
+}

@@ -1,0 +1,33 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class basic5 {
+
+	public static void main(String[] args)throws InterruptedException {
+		// TODO Auto-generated method stub
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\student\\Desktop\\Selenium Lab\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver=new ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://dhondi.cmrithyderabad.edu.in/");
+		WebElement num=driver.findElement(By.id("mobileNumber"));
+		num.sendKeys("9398520911");
+		driver.findElement(By.className("formButton")).click();
+		Thread.sleep(3000);
+		WebElement first=driver.findElement(By.name("first"));
+		first.sendKeys("9");
+		Thread.sleep(1000);
+		WebElement second=driver.findElement(By.name("second"));
+		second.sendKeys("9");
+		Thread.sleep(1000);
+		WebElement third=driver.findElement(By.name("third"));
+		third.sendKeys("9");
+		Thread.sleep(1000);
+		WebElement fourth=driver.findElement(By.name("fourth"));
+		fourth.sendKeys("9");
+			
+	
+	}
+
+}

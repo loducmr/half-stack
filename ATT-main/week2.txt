@@ -1,0 +1,40 @@
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class WEEK2 {
+
+	public static void main(String[] args) throws InterruptedException{
+		System.setProperty("webdriver.chrome.driver","C:\\Users\\student\\Desktop\\Selenium Lab\\chromedriver-win64\\chromedriver-win64\\chromedriver.exe");
+		WebDriver driver = new  ChromeDriver();
+		driver.manage().window().maximize();
+		driver.get("https://www.mercurytravels.co.in/");
+		Thread.sleep(2000);
+		Actions builder=new Actions(driver);
+		WebElement Cl=driver.findElement(By.xpath("(//a[@class='dropdown-toggle'] [normalize-space()='Customer Login'])[2]"));
+		
+		builder.moveToElement(Cl).build().perform();
+		WebElement reg = driver.findElement(By.xpath("(//a[@href='#'] [normalize-space()='Register'])[2]"));
+		reg.click();
+		Thread.sleep(3000);
+		WebElement fn=driver.findElement(By.xpath("//*[@id=\"acc_first_name\"]"));
+		fn.sendKeys("Pranav");
+		WebElement ln=driver.findElement(By.xpath("//*[@id=\"acc_last_name\"]"));
+		ln.sendKeys("Sasank");
+		WebElement ea=driver.findElement(By.xpath("//*[@id=\"acc_user_email\"]"));
+		ea.sendKeys("pranavsasank99@gmail.com");
+		WebElement sp=driver.findElement(By.xpath("//*[@id=\"acc_user_password\"]"));
+		sp.sendKeys("Pranav");
+		WebElement cp=driver.findElement(By.xpath("//*[@id=\"acc_user_passconf\"]"));
+		cp.sendKeys("Pranav");
+		WebElement ph=driver.findElement(By.xpath("//*[@id=\"acc_mobile_no\"]"));
+		ph.sendKeys("9994393893");
+		WebElement sub=driver.findElement(By.xpath("//*[@id=\"modalUserLogin\"]/div/div/div[2]/form/button"));
+		sub.click();
+		Thread.sleep(3000);
+		driver.close();
+	}
+
+}
